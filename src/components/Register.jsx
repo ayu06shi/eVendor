@@ -41,7 +41,7 @@ const Register = () => {
     };
 
     try {
-      await axios.post("https://hawkerhut-back.onrender.com/api/customers/register", newUser);
+      await axios.post("http://localhost:8009/api/customers/register", newUser);
       setError(false);
       setSuccess(true);
       window.location.replace("https://stopby.onrender.com");
@@ -172,7 +172,7 @@ export default Register;
 //     };
 
 //     try {
-//       await axios.post("https://hawkerhut-back.onrender.com/api/customers/register", newUser);
+//       await axios.post("http://localhost:8009/api/customers/register", newUser);
 //       setError(false);
 //       setSuccess(true);
 //       window.location.replace("https://stopby.onrender.com");

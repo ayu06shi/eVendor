@@ -22,12 +22,12 @@ const Admin = (props) => {
   const apicustomer = async () => {
     const options = {
       method: "GET",
-      url: "https://hawkerhut-back.onrender.com/api/web3/admin",
+      url: "http://localhost:8009/api/web3/admin",
     };
     await axios
       .request(options)
       .then((response) => {
-        //console.log(response.data)
+        console.log(response.data)
         response.data.reverse();
         setNotes(response.data);
         setNotes2(response.data);
@@ -41,7 +41,7 @@ const Admin = (props) => {
   const getHawkers = async () => {
     const options = {
       method: "GET",
-      url: "https://hawkerhut-back.onrender.com/api/users/admin",
+      url: "http://localhost:8009/api/users/admin",
     };
     await axios
       .request(options)
@@ -125,7 +125,7 @@ const Admin = (props) => {
     // e.preventDefault();
     const options = {
       method: "POST",
-      url: "https://hawkerhut-back.onrender.com/api/users/block",
+      url: "http://localhost:8009/api/users/block",
       data: {
         username: id,
       },
@@ -290,4 +290,3 @@ const Admin = (props) => {
 };
 
 export default Admin;
-

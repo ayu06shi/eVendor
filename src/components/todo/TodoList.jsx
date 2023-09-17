@@ -37,7 +37,7 @@ function TodoList({ setCurrentUsername,todoChange,todoDelete }) {
     todoChange(inputValue.trim())
     try {
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/items",
+        "http://localhost:8009/api/items",
         // "http://localhost:8009/api/items",
         newOrderAdd
       );
@@ -64,7 +64,7 @@ function TodoList({ setCurrentUsername,todoChange,todoDelete }) {
     };
     try {
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/items/del",
+        "http://localhost:8009/api/items/del",
         // "http://localhost:8009/api/items/del",
         newOrderDelete
       );
