@@ -38,8 +38,8 @@ function Map(props) {
   const [desc, setDesc] = useState(null);
   const [star, setStar] = useState(0);
   const [viewport, setViewport] = useState({
-    latitude: 47.040182,
-    longitude: 17.071727,
+    latitude: 22.53361232958243,
+    longitude: 88.34676105160081,
     zoom: 13,
   });
   const [showRegister, setShowRegister] = useState(false);
@@ -58,8 +58,8 @@ function Map(props) {
     });
   };
   const [per, Sper] = useState({
-    lat: 47.040182,
-    long: 17.071727,
+    lat: 22.53361232958243,
+    long: 88.34676105160081,
   });
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -287,7 +287,8 @@ function Map(props) {
     return result;
   }
   const [loader,setLoader]=useState(false);
-  const handleOrderSubmit = async () => {
+  const handleOrderSubmit = async (e) => {
+    e.preventDefault();
     const { contract } = state;
     ////////////////web3 connect and ask payment//////////////////////
     const accountss = await ethereum.request({
@@ -441,7 +442,7 @@ function Map(props) {
   }
 
   return (
-    <>
+    <div className="map-sidebox">
       <Modal
         className="mode"
         open={open}
@@ -450,7 +451,10 @@ function Map(props) {
         center={true}
         closeIcon={<RxCross2 style={{color:"white",fontSize:"25px"}} />}
       >
-      {loader?<div style={{color:"white",fontSize:"5vh"}}>Loading...</div>:<>
+      {loader?
+      /* <div style={{color:"white",fontSize:"5vh"}}>Loading...</div> */
+      <div style={{color:"white",fontSize:"3vh"}}><img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" style={{width:"35px",height:"35px"}} /> &nbsp;Loading....</div>
+      :<>
         <div className="moddd">
           {download ? (
             <div className="reques">
@@ -536,7 +540,7 @@ function Map(props) {
         style={{
           overflowX: "hidden",
           display: "flex",
-          justifyContent: "space-arond",
+          justifyContent: "space-around",
         }}
       >
         <div
@@ -720,16 +724,16 @@ function Map(props) {
           }}
         >
           <div className="writeuph">
-            <h2 style={{ color: "white" }}>Hawkers Nearby</h2>
+            <h2 style={{ color: "#579bb1",fontWeight:"600",marginLeft:"2vw" }}>Hawkers Nearby</h2>
           </div>
 
           {sideBox.length===0 || sideBox == null ? (
-            <h2 style={{color:"white"}}>No Sellers nearby right now
+            <h2 style={{color:"#579bb1",fontWeight:"600"}}>No Sellers nearby right now
               <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" style={{width:"30px",height:"30px"}} />
             </h2>
           ) : (
             <div className="hawkerboxGrandParent">
-              <div className="hbp">
+              <div className="hbp" style={{backgroundColor:"white",border:"4px solid black"}}>
                 {sideBox.map((p, key) => {
                   //let usernameee = p.username;
                   return (
@@ -763,7 +767,7 @@ function Map(props) {
           </div> */}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
