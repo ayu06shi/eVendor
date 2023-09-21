@@ -11,7 +11,7 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import NavAdmin from "../NavAdmin/NavAdmin";
 import { ToastContainer, toast } from "react-toastify";
-import ProgressBar from 'react-bootstrap/ProgressBar';
+
 const Admin = (props) => {
   const customerRef = React.useRef();
   const hawkerRef = React.useRef();
@@ -22,7 +22,7 @@ const Admin = (props) => {
   const apicustomer = async () => {
     const options = {
       method: "GET",
-      url: "http://localhost:8009/api/web3/admin",
+      url: "https://hawkerhut-back.onrender.com/api/web3/admin",
     };
     await axios
       .request(options)
@@ -41,7 +41,7 @@ const Admin = (props) => {
   const getHawkers = async () => {
     const options = {
       method: "GET",
-      url: "http://localhost:8009/api/users/admin",
+      url: "https://hawkerhut-back.onrender.com/api/users/admin",
     };
     await axios
       .request(options)
@@ -125,7 +125,7 @@ const Admin = (props) => {
     // e.preventDefault();
     const options = {
       method: "POST",
-      url: "http://localhost:8009/api/users/block",
+      url: "https://hawkerhut-back.onrender.com/api/users/block",
       data: {
         username: id,
       },
@@ -156,40 +156,17 @@ const Admin = (props) => {
       <NavAdmin changeTab={change} logout={logout} />
       {tab === 0 ? (
         <div className="admin">
-          <div className="ayushi111">
-            <div>
-              Total Amount
-              <h3>{amount}&nbsp;SHM</h3>
-            </div>
-              <div>
-            Finished Transactions<br/>
-            <br />
-            <div className="Prog">
-            <ProgressBar variant="success" now={60} />
-            </div>
-            </div>
-            
-              <div>
-            Waiting Transactions<br/>
-            <br />
-            <div className="Prog">
-            <ProgressBar variant="info" now={40} />
-            </div>
-            </div>
-          </div>
           <div>
-            <div style={{display:"flex",justifyContent:"flex-start",gap:"20px",flexWrap:"wrap",marginLeft:"1vw"}}>
+            <div>
               <input
                 type="text"
                 placeholder="Enter Customer Name"
                 ref={customerRef}
-                style={{width:"35vw",height:"3.5vh"}}
               />
               <input
                 type="text"
                 placeholder="Enter Hawker Name"
                 ref={hawkerRef}
-                style={{width:"35vw",height:"3.5vh"}}
               />
             </div>
             
@@ -241,7 +218,7 @@ const Admin = (props) => {
                 </Table>
                 <div className="total">
                   <h3 style={{ color: "white" }}>
-                    {/*Total amount... */}
+                    Total Amount: {amount}&nbsp;SHM
                   </h3>
                 </div>
               </div>
@@ -254,7 +231,7 @@ const Admin = (props) => {
         
           <div>
             {hawkerss.length === 0 ? (
-              <h4 style={{color: "white"}}>No hawkers currently !</h4>
+              <>no hawkers currently</>
             ) : (
               <div>
                 <Table>

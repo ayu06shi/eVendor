@@ -33,8 +33,8 @@ function CatMap(props) {
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
   const [viewport, setViewport] = useState({
-    latitude: 47.040182,
-    longitude: 17.071727,
+    latitude: 22.53361232958243,
+    longitude: 88.34676105160081,
     zoom: 10,
   });
   //   const [showRegister, setShowRegister] = useState(false);
@@ -53,8 +53,8 @@ function CatMap(props) {
     });
   };
   const [per, Sper] = useState({
-    lat: 47.040182,
-    long: 17.071727,
+    lat: 22.53361232958243,
+    long: 88.34676105160081,
   });
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -77,7 +77,7 @@ function CatMap(props) {
         console.log("checkkk" + props.category);
         const options = {
           method: "GET",
-          url: "https://hawkerhut-back.onrender.com/api/pins/category",
+          url: "http://localhost:8009/api/pins/category",
           params: { Category: props.category },
         };
         axios
@@ -210,7 +210,7 @@ function CatMap(props) {
 
       
         await axios.post(
-          "https://hawkerhut-back.onrender.com/api/web3/order",
+          "http://localhost:8009/api/web3/order",
           data
         );
         console.log(

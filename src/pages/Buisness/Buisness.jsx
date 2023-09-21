@@ -63,7 +63,7 @@ function Buisness() {
   // change the language
   const handleChange = (e) => {
     setLang(e.target.value);
-    let loc = "https://golocal-ktqh.onrender.com/business";
+    let loc = "https://evendornb.onrender.com/business";
     window.location.replace(loc + "?lng=" + e.target.value);
     myStorage.setItem("Language", e.target.value);
   };
@@ -154,7 +154,7 @@ function Buisness() {
     try {
       //console.log(newPin);
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/pins/updatepins",
+        "http://localhost:8009/api/pins/updatepins",
         // "http://localhost:8009/api/pins/updatepins",
         newPin
       );
@@ -229,7 +229,7 @@ function Buisness() {
     try {
       //console.log(newPin);
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/pins",
+        "http://localhost:8009/api/pins",
         // "http://localhost:8009/api/pins",
         newPin
       );
@@ -271,7 +271,7 @@ function Buisness() {
         username: currentUsername,
       };
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/pins/del",
+        "http://localhost:8009/api/pins/del",
         // "http://localhost:8009/api/pins/del",
         newPin
       );
@@ -282,7 +282,7 @@ function Buisness() {
         username: currentUsername,
       };
       const res = await axios.post(
-        "https://hawkerhut-back.onrender.com/api/items/deleteAll",
+        "http://localhost:8009/api/items/deleteAll",
         // "http://localhost:8009/api/items/deleteAll",
         newOrder
       );
@@ -302,7 +302,7 @@ function Buisness() {
     const getPins = async () => {
       try {
         const allPins = await axios.get(
-          "https://hawkerhut-back.onrender.com/api/pins"
+          "http://localhost:8009/api/pins"
         );
         // console.log(allPins.data);
         setPins(() => {
@@ -332,7 +332,7 @@ function Buisness() {
     notify();
     //console.log(newPin);
     await axios.post(
-      "https://hawkerhut-back.onrender.com/api/pins",
+      "http://localhost:8009/api/pins",
       // "http://localhost:8009/api/pins",
       newPin
     );
@@ -351,7 +351,7 @@ function Buisness() {
   const apihawker = async () => {
     const options = {
       method: "GET",
-      url: "https://hawkerhut-back.onrender.com/api/web3/hawker",
+      url: "http://localhost:8009/api/web3/hawker",
       params: { HUser: currentUsername },
     };
     axios
@@ -451,7 +451,7 @@ function Buisness() {
       />
       {tab === 0 ? (
         <>
-          <div className="parentcon">
+          <div className="parentcon1">
             <div className="mapdiv">
               <ReactMapGL
                 className="mapwidth"
@@ -603,9 +603,9 @@ function Buisness() {
             </div>
             <div className="writeup">
               <div className="writeuph">
-                <h2 style={{ color: "white" }}>{t("line1")}</h2>
+                <h2 style={{ color: "white",textShadow:"2px 2px black",fontWeight:"600" }}>{t("line1")}</h2>
               </div>
-              <span style={{ color: "white" }}>{t("line2")}</span>
+              <span style={{ color: "white",fontWeight:"600" }}>{t("line2")}</span>
               <div className="busi_buttons">
                 <div className="btn_div">
                   <button
@@ -741,7 +741,7 @@ function Buisness() {
                 </>
             </div>
           </div>
-          <div id="gets">
+          <div id="gets" className="videobusi">
             {/* <GetStarted lang={lang} data-aos="fade-up" /> */}
             <Video url="https://www.youtube.com/watch?v=LapOdjjjJgQ" text={t("n20")} />
           </div>

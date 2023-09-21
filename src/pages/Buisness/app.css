@@ -2,10 +2,15 @@
   width: 300px;
   height: 200px;
 }
-.parentcon {
+.parentcon1 {
   display: flex;
   overflow-x: hidden;
   justify-content: space-around;
+  background-image: url("./bg123.jpg")!important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover; 
 }
 
 .mapdiv {
@@ -170,7 +175,7 @@ textarea {
 }
 
 @media (max-width:600px) {
-  .parentcon {
+  .parentcon1 {
     flex-direction: column-reverse;
   }
   .mapdiv{
@@ -239,4 +244,11 @@ Modal{
 }
 .react-switch-bg >div> svg{
   visibility: hidden;
+}
+
+.videobusi{
+  /* background-image: url("./videobg.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%; */
+  background-color: #20262E !important;
 }
